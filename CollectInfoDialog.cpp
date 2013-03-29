@@ -11,7 +11,6 @@ CollectInfoDialog::CollectInfoDialog(QWidget* parent)
 	ui.tableView->horizontalHeader()->setStretchLastSection(true);
 	ui.tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	ui.tableView->setModel(model);
-	
 }
 
 

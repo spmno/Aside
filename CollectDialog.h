@@ -12,5 +12,6 @@ private:
 	Ui::Collect ui;
 private slots:
 	void saveCollection();
+	void nextCollection();
 };
 

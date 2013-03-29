@@ -13,33 +13,41 @@
   <property name="windowTitle">
    <string>Collect</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QSplitter" name="splitter">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <widget class="QTextEdit" name="collectionEdit"/>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Collect</string>
-      </property>
-     </widget>
-    </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTextEdit" name="collectionEdit"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="nextButton_">
+       <property name="text">
+        <string>Next</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="collectButton_">
+       <property name="text">
+        <string>Collect</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>collectButton_</sender>
    <signal>clicked()</signal>
    <receiver>Collect</receiver>
    <slot>saveCollection()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>201</x>
-     <y>314</y>
+     <x>389</x>
+     <y>329</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -47,8 +55,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>nextButton_</sender>
+   <signal>clicked()</signal>
+   <receiver>Collect</receiver>
+   <slot>nextCollection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>saveCollection()</slot>
+  <slot>nextCollection()</slot>
  </slots>
 </ui>

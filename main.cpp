@@ -13,5 +13,10 @@ int main(int argc, char *argv[])
 	}
 	Aside w;
 	w.show();
-	return a.exec();
+	
+	int result = a.exec();
+
+	delete filter;
+
+	return result;
 }

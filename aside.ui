@@ -25,7 +25,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QColumnView" name="columnView"/>
+       <widget class="QListView" name="collectionList_"/>
       </item>
      </layout>
     </item>
@@ -39,7 +39,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QColumnView" name="columnView_2"/>
+       <widget class="QListView" name="nextActionList_"/>
       </item>
      </layout>
     </item>
@@ -53,7 +53,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QColumnView" name="columnView_3"/>
+       <widget class="QTreeView" name="projectTreeView">
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
+        <attribute name="headerVisible">
+         <bool>false</bool>
+        </attribute>
+       </widget>
       </item>
      </layout>
     </item>
@@ -67,7 +74,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QColumnView" name="columnView_4"/>
+       <widget class="QCalendarWidget" name="calendarWidget"/>
       </item>
      </layout>
     </item>
@@ -105,8 +112,8 @@
    <slot>collectThing()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>72</x>
-     <y>76</y>
+     <x>82</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
      <x>285</x>
@@ -114,8 +121,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>collectionList_</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>AsideClass</receiver>
+   <slot>disposeCollection(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>projectButton_</sender>
+   <signal>clicked()</signal>
+   <receiver>AsideClass</receiver>
+   <slot>addProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>575</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>602</x>
+     <y>37</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>collectThing()</slot>
+  <slot>disposeCollection(QModelIndex)</slot>
+  <slot>editProject()</slot>
+  <slot>addProject()</slot>
  </slots>
 </ui>

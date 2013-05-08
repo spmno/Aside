@@ -4,12 +4,15 @@
 #include <QtWidgets\qtableview.h>
 #include <Windows.h>
 
+
+
 //db relation define
 const QString DB_NAME = "aside.db";
 #define COLLECTION_TABE_NAME "collection"
 #define ACTION_TABLE_NAME "action"
 #define PROJECT_TABLE_NAME "project"
 #define REVIEW_TABLE_NAME "review"
+#define NEXT_ACTION_TABLE_NAME "nextaction"
 
 DBManager::DBManager(void)
 {
@@ -59,6 +62,13 @@ bool DBManager::init()
 		}
 	}
 
+	//create next action table
+	if (!tableList.contains(NEXT_ACTION_TABLE_NAME)) {
+		if (!query.exec("create table nextaction (id INTEGER PRIMARY KEY AUTOINCREMENT, action_id integer, foreign key(action_id) references action(id));")) {
+			QMessageBox::critical(NULL, ("error"), ("sql create next action table error"),  QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes); 
+			return false;
+		}
+	}
 	// create review table
 	if (!tableList.contains(REVIEW_TABLE_NAME)) {
 		if (!query.exec("create table review (id INTEGER PRIMARY KEY AUTOINCREMENT, content TEXT, reviewdate date default (date('now')));")) {
@@ -161,16 +171,19 @@ bool DBManager::saveAction(const QString& content, int projectId)
 	}
 }
 
-bool DBManager::getProjectActions(const QString& projectName, QVector<QString>& actionContainer)
+bool DBManager::getProjectActions(const QString& projectName, QVector<AsideAction>& actionContainer)
 {
 	int projectId = getProjectIndex(projectName);
-	QString sqlContent = QString("select content from action where project_id = ('%1');").arg(projectId);
+	QString sqlContent = QString("select id, content from action where project_id = ('%1');").arg(projectId);
 	QSqlQuery query;
 	bool findFlag = false;
 	if (query.exec(sqlContent)) {
 		while (query.next()) {
 			findFlag = true;
-			actionContainer.push_back(query.value(0).toString());
+			AsideAction asideAction;
+			asideAction.actionID = query.value(0).toInt();
+			asideAction.actionContent = query.value(1).toString();
+			actionContainer.push_back(asideAction);
 		}
 		return findFlag;
 	} else {
@@ -192,4 +205,92 @@ bool DBManager::getProjects(QVector<QString>& projectContainer)
 		qDebug() << query.lastError();
 		return false;
 	}
+}
+
+bool DBManager::hasNextAction(const int actionId)
+{
+	QString sqlContent = QString("select * from nextaction where action_id = ('%1');").arg(actionId);
+	qDebug() << sqlContent;
+	QSqlQuery query;
+	if (query.exec(sqlContent)) {
+		if (query.next()) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		qDebug() << query.lastError();
+		return false;
+	}
+}
+
+bool DBManager::saveNextAction(const int actionId)
+{
+	if (hasNextAction(actionId)) {
+		return true;
+	}
+	QString sqlContent = QString("insert into nextaction(action_id) values('%1');").arg(actionId);
+	//sqlContent.sprintf("insert into collection values %s", content.toLatin1());
+	//OutputDebugStringA(content.toLatin1());
+	qDebug() << (sqlContent.toLatin1());
+	QSqlQuery query;
+	if (query.exec(sqlContent)) {
+		return true;
+	} else {
+		qDebug() << query.lastError();
+		return false;
+	}
+}
+
+bool DBManager::deleteNextAction(const int actionId)
+{
+	QString sqlContent = QString("delete from nextaction where id = ('%1');").arg(actionId);
+	OutputDebugStringA(sqlContent.toLatin1());
+	QSqlQuery query;
+	if (query.exec(sqlContent)) {
+		return true;
+	} else {
+		qDebug() << query.lastError();
+		return false;
+	}
+}
+
+bool DBManager::saveReview(const QString& content)
+{
+	QString sqlContent = QString("insert into review(content) values('%1');").arg(content);
+	//sqlContent.sprintf("insert into collection values %s", content.toLatin1());
+	//OutputDebugStringA(content.toLatin1());
+	OutputDebugStringA(sqlContent.toLatin1());
+	QSqlQuery query;
+	if (query.exec(sqlContent)) {
+		return true;
+	} else {
+		qDebug() << query.lastError();
+		return false;
+	}
+}
+
+bool DBManager::getReview(const QDate& date, QString& content)
+{
+	QString sqlContent = QString("select content from review where reviewdate = date('%1');").arg(date.toString(Qt::ISODate));
+	OutputDebugStringA(sqlContent.toLatin1());
+	QSqlQuery query;
+	if (query.exec(sqlContent)) {
+		if (query.next()) {
+			content = query.value(0).toString();
+			return true;
+		} else {
+			return false;
+		}
+		
+	} else {
+		qDebug() << query.lastError();
+		return false;
+	}
+
+}
+
+int DBManager::getActionId(const QString& content)
+{
+	return -1;	
 }

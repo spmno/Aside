@@ -13,5 +13,7 @@ private:
 private slots:
 	void saveCollection();
 	void nextCollection();
+signals:
+	void updateMainWindow();
 };
 

@@ -14,15 +14,41 @@
    <string>Aside</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="collectButton_">
-        <property name="text">
-         <string>collect</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="collectButton_">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>5</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>collect</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="addCollectButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>add</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QListView" name="collectionList_"/>
@@ -39,7 +65,17 @@
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="nextActionList_"/>
+       <widget class="QDropListView" name="nextActionList_">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::DropOnly</enum>
+        </property>
+        <property name="defaultDropAction">
+         <enum>Qt::CopyAction</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -56,6 +92,18 @@
        <widget class="QTreeView" name="projectTreeView">
         <property name="contextMenuPolicy">
          <enum>Qt::NoContextMenu</enum>
+        </property>
+        <property name="showDropIndicator" stdset="0">
+         <bool>true</bool>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::DragOnly</enum>
+        </property>
+        <property name="defaultDropAction">
+         <enum>Qt::CopyAction</enum>
         </property>
         <attribute name="headerVisible">
          <bool>false</bool>
@@ -101,6 +149,13 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QDropListView</class>
+   <extends>QListView</extends>
+   <header location="global">qdroplistview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="aside.qrc"/>
  </resources>
@@ -153,11 +208,79 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>addCollectButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AsideClass</receiver>
+   <slot>addCollection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>244</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nextButton_</sender>
+   <signal>clicked()</signal>
+   <receiver>AsideClass</receiver>
+   <slot>selectNextAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>394</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>37</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>reviewButton_</sender>
+   <signal>clicked()</signal>
+   <receiver>AsideClass</receiver>
+   <slot>addReview()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>851</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>866</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>calendarWidget</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>AsideClass</receiver>
+   <slot>showReview()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>879</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>913</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>collectThing()</slot>
   <slot>disposeCollection(QModelIndex)</slot>
   <slot>editProject()</slot>
   <slot>addProject()</slot>
+  <slot>addCollection()</slot>
+  <slot>selectNextAction()</slot>
+  <slot>addReview()</slot>
+  <slot>showReview()</slot>
  </slots>
 </ui>

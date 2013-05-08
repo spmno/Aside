@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;cxx;c;def</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h</Extensions>
-    </Filter>
     <Filter Include="Form Files">
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
@@ -33,20 +25,29 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Header Files\DB">
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{f579dfc4-7816-4bc5-ac03-d6e98f7bc40c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DB">
       <UniqueIdentifier>{b1fed1cb-51d5-4c49-b3e6-8459eeb23dad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DB">
-      <UniqueIdentifier>{8b065145-cb79-4ec9-be12-dd9b47f5bce1}</UniqueIdentifier>
+    <Filter Include="Model">
+      <UniqueIdentifier>{0ff98a22-a48f-443d-8926-218911e16952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{ae80224b-3d76-4e62-856a-6a55f63ecdb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Value">
+      <UniqueIdentifier>{86127813-0eb8-43bd-b36c-2eb4b3efa15d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{3d2d5384-c629-49b2-8815-1c93339108a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{e0c40352-9d76-41da-a88d-69e832a80432}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="aside.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_aside.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -56,23 +57,11 @@
     <ClCompile Include="GeneratedFiles\qrc_aside.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="CollectDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_CollectDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_CollectDialog.cpp">
       <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowsEventFilter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DB\DBManager.cpp">
-      <Filter>Source Files\DB</Filter>
-    </ClCompile>
-    <ClCompile Include="CollectInfoDialog.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_CollectInfoDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -80,26 +69,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CollectInfoDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="ValueContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="treeitem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="treemodel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_treemodel.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_treemodel.cpp">
       <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectEditDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectAddDialog.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ProjectAddDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -107,11 +81,95 @@
     <ClCompile Include="GeneratedFiles\Release\moc_ProjectAddDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SelectNextActionDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SelectNextActionDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DB\DBManager.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="aside.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectInfoDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectAddDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectEditDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectNextActionDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="treemodel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="treeitem.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsEventFilter.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="ValueContainer.cpp">
+      <Filter>Value</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsManager.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CheckBoxModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CheckBoxModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="ReviewAddDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBoxModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ReviewAddDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ReviewAddDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="QDropListView.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="DragStandItemModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DragStandItemModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DragStandItemModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DB\AsideAction.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="TomatoTimeDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TomatoTimeDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TomatoTimeDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="aside.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="aside.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
@@ -121,17 +179,8 @@
     <CustomBuild Include="collect.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="CollectDialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="collectionInfo.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="CollectInfoDialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="treemodel.h">
-      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="projectAdd.ui">
       <Filter>Form Files</Filter>
@@ -139,8 +188,41 @@
     <CustomBuild Include="tomato.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="selectNextAction.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="aside.h">
+      <Filter>Dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CollectDialog.h">
+      <Filter>Dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CollectInfoDialog.h">
+      <Filter>Dialog</Filter>
+    </CustomBuild>
     <CustomBuild Include="ProjectAddDialog.h">
-      <Filter>Header Files</Filter>
+      <Filter>Dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SelectNextActionDialog.h">
+      <Filter>Dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="treemodel.h">
+      <Filter>Model</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CheckBoxModel.h">
+      <Filter>Model</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ReviewAddDialog.h">
+      <Filter>Dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="reviewAdd.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DragStandItemModel.h">
+      <Filter>Model</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TomatoTimeDialog.h">
+      <Filter>Dialog</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -148,25 +230,13 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="DB\DBManager.h">
-      <Filter>Header Files\DB</Filter>
+      <Filter>DB</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_collect.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="WindowsEventFilter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_collectionInfo.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ValueContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="treeitem.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_projectAdd.h">
       <Filter>Generated Files</Filter>
@@ -174,8 +244,35 @@
     <ClInclude Include="GeneratedFiles\ui_tomato.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_selectNextAction.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
     <ClInclude Include="ProjectEditDialog.h">
-      <Filter>Header Files</Filter>
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="treeitem.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsEventFilter.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueContainer.h">
+      <Filter>Value</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsManager.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_reviewAdd.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QDropListView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\AsideAction.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

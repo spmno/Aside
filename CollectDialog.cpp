@@ -22,6 +22,7 @@ void CollectDialog::saveCollection()
 	} else {
 		QMessageBox::critical(NULL, ("error"), ("sql save collection error"),  QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes); 
 	}
+	emit updateMainWindow();
 }
 
 void CollectDialog::nextCollection()
@@ -31,4 +32,5 @@ void CollectDialog::nextCollection()
 	} else {
 		QMessageBox::critical(NULL, ("error"), ("sql save collection error"),  QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes); 
 	}
+	emit updateMainWindow();
 }

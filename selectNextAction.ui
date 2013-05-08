@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>selectActionDialog</class>
+ <widget class="QDialog" name="selectActionDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>495</width>
+    <height>351</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SelectNextAction</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QListView" name="listView"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="completeButton">
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>completeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>selectActionDialog</receiver>
+   <slot>saveNextAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>saveNextAction()</slot>
+ </slots>
+</ui>

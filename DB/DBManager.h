@@ -1,6 +1,7 @@
 #pragma once
 #include <QtSql\QtSql>
 #include <QtCore\qvector.h>
+#include "AsideAction.h"
 class DBManager
 {
 public:
@@ -18,8 +19,14 @@ public:
 	int  getProjectIndex(const QString& projectName);
 	bool saveAction(const QString& content, int projectId = 0);
 	bool deleteAction(const QString& content);
-	bool getProjectActions(const QString& projectName, QVector<QString>& actionContainer);
+	bool getProjectActions(const QString& projectName, QVector<AsideAction>& actionContainer);
 	bool getProjects(QVector<QString>& projectContainer);
+	bool hasNextAction(const int actionId);
+	bool saveNextAction(const int actionId);
+	bool deleteNextAction(const int actionId);
+	bool saveReview(const QString& content);
+	bool getReview(const QDate& date, QString& content);
+	int getActionId(const QString& content);
 private:
 	explicit DBManager(void);	
 	QSqlDatabase db_;

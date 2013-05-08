@@ -1,6 +1,7 @@
 #include "ProjectAddDialog.h"
-#include <QtWidgets\qmessagebox.h>
-#include "DB\DBManager.h"
+#include <QtWidgets/qmessagebox.h>
+#include "DB/DBManager.h"
+#include "DB/AsideAction.h"
 
 ProjectAddDialog::ProjectAddDialog(QWidget* parent)
 {
@@ -48,14 +49,14 @@ void ProjectAddDialog::updateTreeView()
 	QStandardItem* item = new QStandardItem(projectName);
 	treeViewModel_->setItem(0, item);
 
-	QVector<QString> actionData;
+	QVector<AsideAction> actionData;
 	if (!dbManager.getProjectActions(projectName, actionData)) {
 		return ;
 	}
 
 
 	for (int i = 0; i < actionData.size(); ++i) {
-		QStandardItem* item = new QStandardItem(actionData[i]);
+		QStandardItem* item = new QStandardItem(actionData[i].actionContent);
 		treeViewModel_->setItem(i+1, item);
 	}
 
